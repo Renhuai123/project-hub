@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>曜黑 Onyx · 纯黑白电蓝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000000;
+    --panel:#0A0A0A;
+    --elev:#111111;
+    --line:rgba(255,255,255,.09);
+    --line2:rgba(255,255,255,.15);
+    --text:#EDEDED;
+    --muted:#8F8F8F;
+    --faint:#5A5A5A;
+    --blue:#0070F3;
+    --blue2:#3D9EFF;
+    --green:#3FB950;
+    --red:#F85149;
+    --display:'Geist','Space Grotesk','PingFang SC',sans-serif;
+    --body:'Geist','Inter','PingFang SC',sans-serif;
+    --mono:'Geist Mono','JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(620px 280px at 50% -120px, rgba(0,112,243,.16), transparent 70%),
+      var(--bg);
+    color:var(--text);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;
+    padding:34px 26px 80px;
+  }
+  .wrap{max-width:1040px;margin:0 auto}
+  .rise{opacity:0;transform:translateY(12px);animation:rise .6s cubic-bezier(.22,.61,.36,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.04s}.d2{animation-delay:.1s}.d3{animation-delay:.18s}.d4{animation-delay:.26s}
+
+  /* top bar */
+  .bar{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:11px}
+  .glyph{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,112,243,.5)}
+  .glyph::after{content:'';width:9px;height:9px;background:#000;border-radius:2px;transform:rotate(45deg)}
+  .brand b{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .brand span{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:2px}
+  .actions{display:flex;align-items:center;gap:12px}
+  .ghost{font-size:13px;color:var(--muted);font-family:var(--mono)}
+  .btn{background:#fff;color:#000;font-weight:600;font-size:13px;padding:8px 15px;border-radius:8px;border:none;display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:transform .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn .plus{font-size:15px;line-height:1}
+
+  /* stats */
+  .stats{display:flex;gap:0;margin:26px 0 30px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .stat{flex:1;padding:18px 22px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--mono);font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:3px}
+  .stat.b .n{color:var(--blue2)} .stat.g .n{color:var(--green)} .stat.r .n{color:var(--red)}
+
+  .sech{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .sech::after{content:'';flex:1;height:1px;background:var(--line)}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;transition:border-color .2s,transform .2s,box-shadow .2s}
+  .card:hover{border-color:var(--line2);transform:translateY(-3px);box-shadow:0 16px 40px -24px rgba(0,112,243,.5)}
+  .ctop{display:flex;justify-content:space-between;align-items:center}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:5px 10px;border-radius:7px;font-family:var(--mono)}
+  .chip .dot{width:6px;height:6px;border-radius:50%}
+  .c-ing{background:rgba(0,112,243,.13);color:var(--blue2)}.c-ing .dot{background:var(--blue);box-shadow:0 0 8px var(--blue)}
+  .c-done{background:rgba(63,185,80,.13);color:var(--green)}.c-done .dot{background:var(--green)}
+  .c-fail{background:rgba(248,81,73,.12);color:var(--red)}.c-fail .dot{background:var(--red)}
+  .card h3{font-family:var(--display);font-size:18px;font-weight:600;margin:15px 0 3px;letter-spacing:-.01em}
+  .card .sub{font-size:12px;color:var(--faint)}
+  .rw{display:flex;align-items:center;gap:14px;margin-top:16px}
+  .ring{position:relative;width:60px;height:60px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;font-weight:700}
+  .mile{flex:1;font-size:11.5px;color:var(--muted)}
+  .mile b{color:var(--text);font-weight:600}
+
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+  .sw{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+  .sw i{width:13px;height:13px;border-radius:4px;display:block}
+  .foot{margin-top:18px;font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar rise d1">
+    <div class="brand">
+      <div class="glyph"></div>
+      <b>项目中枢</b><span>project hub</span>
+    </div>
+    <div class="actions">
+      <span class="ghost">⌘K 搜索</span>
+      <button class="btn"><span class="plus">+</span> 新建项目</button>
+    </div>
+  </div>
+
+  <div class="stats rise d2">
+    <div class="stat"><div class="n">24</div><div class="l">总项目</div></div>
+    <div class="stat b"><div class="n">14</div><div class="l">进行中</div></div>
+    <div class="stat g"><div class="n">7</div><div class="l">完成</div></div>
+    <div class="stat r"><div class="n">3</div><div class="l">失败 / 搁置</div></div>
+  </div>
+
+  <div class="sech rise d2">项目全景 · ALL PROJECTS</div>
+  <div class="grid rise d3">
+
+    <div class="card">
+      <div class="ctop"><span class="tag">⚙️ 引擎</span><span class="chip c-ing"><span class="dot"></span>进行中</span></div>
+      <h3>project-hub</h3>
+      <div class="sub">项目进度中枢</div>
+      <div class="rw">
+        <div class="ring"><svg width="60" height="60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="30" cy="30" r="25" fill="none" stroke="#0070F3" stroke-width="5" stroke-linecap="round" stroke-dasharray="157.08" stroke-dashoffset="43.98"/></svg><div class="pct" style="color:#3D9EFF">72%</div></div>
+        <div class="mile">已完成 <b>4 / 6</b> 里程碑<br>差:详情树、AI 助手</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ctop"><span class="tag">🀄 文化</span><span class="chip c-done"><span class="dot"></span>完成</span></div>
+      <h3>致大模型大厂公开信</h3>
+      <div class="sub">小红书图文 · 深色轮播卡</div>
+      <div class="rw">
+        <div class="ring"><svg width="60" height="60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="30" cy="30" r="25" fill="none" stroke="#3FB950" stroke-width="5" stroke-linecap="round" stroke-dasharray="157.08" stroke-dashoffset="0"/></svg><div class="pct" style="color:#3FB950">100%</div></div>
+        <div class="mile">已完成 <b>6 / 6</b> 里程碑<br>已交付:8 卡 + 全文 PDF</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ctop"><span class="tag">🧬 科研</span><span class="chip c-ing"><span class="dot"></span>进行中</span></div>
+      <h3>vtumor</h3>
+      <div class="sub">虚拟荷瘤小鼠 · 扰动排序</div>
+      <div class="rw">
+        <div class="ring"><svg width="60" height="60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="30" cy="30" r="25" fill="none" stroke="#0070F3" stroke-width="5" stroke-linecap="round" stroke-dasharray="157.08" stroke-dashoffset="59.69"/></svg><div class="pct" style="color:#3D9EFF">62%</div></div>
+        <div class="mile">已完成 <b>3 / 5</b> 里程碑<br>差:in-silico 验证、湿实验</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ctop"><span class="tag">🀄 文化</span><span class="chip c-fail"><span class="dot"></span>搁置</span></div>
+      <h3>四大名著打擂写小说</h3>
+      <div class="sub">已被单作者 SOP 取代</div>
+      <div class="rw">
+        <div class="ring"><svg width="60" height="60"><circle cx="30" cy="30" r="25" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="30" cy="30" r="25" fill="none" stroke="#F85149" stroke-width="5" stroke-linecap="round" stroke-dasharray="157.08" stroke-dashoffset="125.66"/></svg><div class="pct" style="color:#F85149">20%</div></div>
+        <div class="mile">停在 <b>1 / 5</b> 里程碑<br>原因:多作者打擂被废弃</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legend rise d4">
+    <div class="sw"><i style="background:#000;border:1px solid rgba(255,255,255,.2)"></i>纯黑 #000</div>
+    <div class="sw"><i style="background:#EDEDED"></i>月白 #EDEDED</div>
+    <div class="sw"><i style="background:#0070F3"></i>电蓝 #0070F3 · 主色/进行中</div>
+    <div class="sw"><i style="background:#3FB950"></i>完成 #3FB950</div>
+    <div class="sw"><i style="background:#F85149"></i>失败 #F85149</div>
+  </div>
+  <div class="foot rise d4">曜黑 Onyx · Geist + Geist Mono + 苹方 · 纯黑底 / 发丝级描边 / 电蓝辉光 / 白底反色按钮</div>
+
+</div>
+</body>
+</html>

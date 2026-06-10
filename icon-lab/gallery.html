@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #e9e9ec; font-family: -apple-system, 'PingFang SC', sans-serif; padding: 28px 30px; color: #111; }
+  h1 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: #888; margin-bottom: 22px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .tile { background: #fff; border: 1px solid #ddd; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .big { width: 184px; height: 184px; }
+  .row { display: flex; align-items: center; gap: 12px; }
+  .mini { width: 40px; height: 40px; }
+  .mini2 { width: 26px; height: 26px; }
+  .lab { font-size: 13px; font-weight: 600; }
+  .desc { font-size: 11px; color: #999; text-align: center; line-height: 1.4; }
+  .minis { display:flex; align-items:center; gap:10px; padding:6px 10px; background:#f4f4f5; border-radius:10px; }
+  .mlab { font-size:10px; color:#aaa; }
+</style>
+</head>
+<body>
+  <h1>project-hub 图标方案 · 曜黑 Onyx(电蓝 #0070F3)</h1>
+  <div class="sub">每个旁边是 40px / 26px 缩略,验证小尺寸是否还认得出</div>
+  <div class="grid">
+
+    <!-- A-dark -->
+    <div class="tile">
+      <svg class="big" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgAd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161616"/><stop offset="1" stop-color="#000"/></linearGradient>
+          <linearGradient id="diaAd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a9bff"/><stop offset=".5" stop-color="#0070F3"/><stop offset="1" stop-color="#0055c0"/></linearGradient>
+        </defs>
+        <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgAd)"/>
+        <g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="url(#diaAd)"/></g>
+        <g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="168" rx="58" fill="#fff" opacity=".10"/></g>
+      </svg>
+      <div class="lab">A · 蓝菱形(黑底)</div>
+      <div class="minis"><svg class="mini" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="#0070F3"/></g></svg><svg class="mini2" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="#0070F3"/></g></svg><span class="mlab">40 / 26</span></div>
+    </div>
+
+    <!-- A-light -->
+    <div class="tile">
+      <svg class="big" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="diaAl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f93ff"/><stop offset=".5" stop-color="#0070F3"/><stop offset="1" stop-color="#0055c0"/></linearGradient></defs>
+        <rect x="100" y="100" width="824" height="824" rx="185" fill="#fff" stroke="#e3e3e6" stroke-width="3"/>
+        <g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="url(#diaAl)"/></g>
+      </svg>
+      <div class="lab">A · 蓝菱形(白底)</div>
+      <div class="minis"><svg class="mini" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#fff" stroke="#e3e3e6" stroke-width="6"/><g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="#0070F3"/></g></svg><svg class="mini2" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#fff" stroke="#e3e3e6" stroke-width="6"/><g transform="translate(512 512) rotate(45)"><rect x="-168" y="-168" width="336" height="336" rx="58" fill="#0070F3"/></g></svg><span class="mlab">40 / 26</span></div>
+    </div>
+
+    <!-- B progress ring -->
+    <div class="tile">
+      <svg class="big" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161616"/><stop offset="1" stop-color="#000"/></linearGradient>
+          <linearGradient id="ringB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a9bff"/><stop offset="1" stop-color="#0061d6"/></linearGradient>
+        </defs>
+        <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgB)"/>
+        <g transform="translate(512 512) rotate(-90)">
+          <circle r="208" fill="none" stroke="#242424" stroke-width="80"/>
+          <circle r="208" fill="none" stroke="url(#ringB)" stroke-width="80" stroke-linecap="round" stroke-dasharray="954 1307"/>
+        </g>
+        <circle cx="512" cy="512" r="34" fill="#0070F3"/>
+      </svg>
+      <div class="lab">B · 进度环</div>
+      <div class="minis"><svg class="mini" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g transform="translate(512 512) rotate(-90)"><circle r="208" fill="none" stroke="#242424" stroke-width="80"/><circle r="208" fill="none" stroke="#0070F3" stroke-width="80" stroke-linecap="round" stroke-dasharray="954 1307"/></g></svg><svg class="mini2" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g transform="translate(512 512) rotate(-90)"><circle r="208" fill="none" stroke="#242424" stroke-width="80"/><circle r="208" fill="none" stroke="#0070F3" stroke-width="80" stroke-linecap="round" stroke-dasharray="954 1307"/></g></svg><span class="mlab">40 / 26</span></div>
+    </div>
+
+    <!-- C hub node -->
+    <div class="tile">
+      <svg class="big" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161616"/><stop offset="1" stop-color="#000"/></linearGradient>
+          <linearGradient id="nodeC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a9bff"/><stop offset="1" stop-color="#0061d6"/></linearGradient>
+        </defs>
+        <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgC)"/>
+        <g stroke="#0070F3" stroke-width="20" fill="none" stroke-linecap="round" opacity=".9">
+          <path d="M512 360 Q512 520 332 632"/>
+          <path d="M512 360 L512 632"/>
+          <path d="M512 360 Q512 520 692 632"/>
+        </g>
+        <circle cx="512" cy="320" r="80" fill="url(#nodeC)"/>
+        <circle cx="332" cy="688" r="54" fill="#0070F3"/>
+        <circle cx="512" cy="688" r="54" fill="#0070F3"/>
+        <circle cx="692" cy="688" r="54" fill="#0070F3"/>
+      </svg>
+      <div class="lab">C · 枢纽节点</div>
+      <div class="minis"><svg class="mini" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g stroke="#0070F3" stroke-width="24" fill="none" stroke-linecap="round"><path d="M512 360 Q512 520 332 632"/><path d="M512 360 L512 632"/><path d="M512 360 Q512 520 692 632"/></g><circle cx="512" cy="320" r="84" fill="#0070F3"/><circle cx="332" cy="688" r="56" fill="#0070F3"/><circle cx="512" cy="688" r="56" fill="#0070F3"/><circle cx="692" cy="688" r="56" fill="#0070F3"/></svg><svg class="mini2" viewBox="0 0 1024 1024"><rect x="100" y="100" width="824" height="824" rx="185" fill="#0b0b0b"/><g stroke="#0070F3" stroke-width="28" fill="none" stroke-linecap="round"><path d="M512 360 Q512 520 332 632"/><path d="M512 360 L512 632"/><path d="M512 360 Q512 520 692 632"/></g><circle cx="512" cy="320" r="90" fill="#0070F3"/><circle cx="332" cy="688" r="58" fill="#0070F3"/><circle cx="512" cy="688" r="58" fill="#0070F3"/><circle cx="692" cy="688" r="58" fill="#0070F3"/></svg><span class="mlab">40 / 26</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

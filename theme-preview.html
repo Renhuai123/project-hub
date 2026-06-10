@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>墨玉 Ink Jade · 主题预览</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0E1412;        /* 墨底 base bg */
+    --surface:#18221E;    /* 玄层 panel */
+    --raised:#1F2C27;     /* 抬升层 elevated */
+    --line:rgba(255,255,255,.07);
+    --jade:#2BD49A;       /* 翡翠 primary / 完成 */
+    --jade-soft:rgba(43,212,154,.14);
+    --gilt:#E8B339;       /* 鎏金 in-progress */
+    --gilt-soft:rgba(232,179,57,.14);
+    --crimson:#D4615C;    /* 黯红 failed */
+    --crimson-soft:rgba(212,97,92,.14);
+    --text:#EAF2EE;       /* 月白 */
+    --muted:#8FA39B;
+    --faint:#5E6F68;
+    --display:'Space Grotesk','PingFang SC',sans-serif;
+    --body:'Inter','PingFang SC',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(1100px 600px at 78% -8%, rgba(43,212,154,.07), transparent 60%),
+      radial-gradient(900px 500px at 8% 108%, rgba(232,179,57,.05), transparent 55%),
+      var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:64px 28px 96px;
+  }
+  .wrap{max-width:980px;margin:0 auto}
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.22,.61,.36,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.13s}.d3{animation-delay:.22s}.d4{animation-delay:.32s}.d5{animation-delay:.42s}
+
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:var(--jade);text-transform:uppercase;margin-bottom:18px}
+  h1{font-family:var(--display);font-weight:700;font-size:58px;letter-spacing:-.02em;line-height:1.04}
+  h1 .en{color:var(--faint);font-weight:500;font-size:34px;margin-left:14px}
+  .lede{color:var(--muted);font-size:16px;margin-top:14px;max-width:560px}
+
+  .sec{margin-top:64px}
+  .sec-h{font-family:var(--mono);font-size:12px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .sec-h::after{content:'';flex:1;height:1px;background:var(--line)}
+
+  /* palette */
+  .pal{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .sw{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .sw .chip{height:78px}
+  .sw .meta{padding:12px 14px}
+  .sw .nm{font-size:13px;font-weight:600}
+  .sw .hex{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
+  .sw .role{font-size:11px;color:var(--faint);margin-top:6px}
+
+  /* type */
+  .type{display:grid;gap:18px}
+  .tcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+  .tlabel{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.12em;margin-bottom:12px}
+  .t-display{font-family:var(--display);font-weight:700;font-size:36px;letter-spacing:-.015em}
+  .t-body{font-family:var(--body);font-size:16px;color:#d4e0da}
+  .t-mono{font-family:var(--mono);font-size:18px;color:var(--jade)}
+
+  /* project cards */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:linear-gradient(180deg,var(--raised),var(--surface));border:1px solid var(--line);border-radius:20px;padding:22px;position:relative;transition:transform .25s ease,border-color .25s ease}
+  .card:hover{transform:translateY(-4px);border-color:rgba(43,212,154,.35)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:4px 9px;border-radius:999px}
+  .card h3{font-family:var(--display);font-size:19px;font-weight:600;margin:16px 0 4px}
+  .card .sub{font-size:12.5px;color:var(--faint)}
+  .ringwrap{display:flex;align-items:center;gap:16px;margin-top:18px}
+  .ring{position:relative;width:64px;height:64px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;font-weight:700}
+  .mile{flex:1;font-size:12px;color:var(--muted)}
+  .mile b{color:var(--text);font-weight:600}
+  .chip-st{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px}
+  .chip-st .dot{width:6px;height:6px;border-radius:50%}
+  .st-done{background:var(--jade-soft);color:var(--jade)}
+  .st-done .dot{background:var(--jade)}
+  .st-ing{background:var(--gilt-soft);color:var(--gilt)}
+  .st-ing .dot{background:var(--gilt)}
+  .st-fail{background:var(--crimson-soft);color:var(--crimson)}
+  .st-fail .dot{background:var(--crimson)}
+
+  /* tree mini */
+  .tree{display:flex;align-items:center;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 26px;overflow-x:auto}
+  .node{flex:none;background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:150px}
+  .node.goal{border-color:rgba(43,212,154,.4)}
+  .node.end{border-color:rgba(232,179,57,.35)}
+  .node .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--faint);margin-bottom:7px}
+  .node .ntitle{font-size:14px;font-weight:600}
+  .branches{flex:none;display:flex;flex-direction:column;gap:10px}
+  .branch{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:11px 14px;min-width:200px}
+  .branch .brow{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}
+  .branch .pc{font-family:var(--mono);font-size:12px}
+  .bar{height:5px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+  .bar>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--jade),#5fe6bc)}
+  .conn{flex:none;width:46px;height:2px;background:linear-gradient(90deg,var(--line),rgba(43,212,154,.5),var(--line));position:relative}
+  .conn::after{content:'';position:absolute;right:0;top:-3px;border:4px solid transparent;border-left-color:rgba(43,212,154,.6)}
+
+  .foot{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 22px}
+  .foot b{color:var(--muted);font-weight:600}
+  @media(max-width:760px){.pal{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}h1{font-size:40px}h1 .en{display:block;margin:6px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="rise d1">
+    <div class="kicker">WANGDUOYU · PROJECT HUB</div>
+    <h1>墨玉<span class="en">Ink Jade</span></h1>
+    <p class="lede">墨底承传统、翡翠表生长、鎏金示进行——一套为「项目进度中枢」定制的深色主题。绿色天然读作"成长 / 完成",正好是这个平台的灵魂。</p>
+  </header>
+
+  <section class="sec rise d2">
+    <div class="sec-h">调色板 · Palette</div>
+    <div class="pal">
+      <div class="sw"><div class="chip" style="background:#0E1412"></div><div class="meta"><div class="nm">墨底</div><div class="hex">#0E1412</div><div class="role">页面底色</div></div></div>
+      <div class="sw"><div class="chip" style="background:#18221E"></div><div class="meta"><div class="nm">玄层</div><div class="hex">#18221E</div><div class="role">卡片 / 面板</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2BD49A"></div><div class="meta"><div class="nm">翡翠</div><div class="hex">#2BD49A</div><div class="role">主色 / 完成</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E8B339"></div><div class="meta"><div class="nm">鎏金</div><div class="hex">#E8B339</div><div class="role">进行中</div></div></div>
+      <div class="sw"><div class="chip" style="background:#D4615C"></div><div class="meta"><div class="nm">黯红</div><div class="hex">#D4615C</div><div class="role">失败 / 搁置</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EAF2EE"></div><div class="meta"><div class="nm">月白</div><div class="hex">#EAF2EE</div><div class="role">正文文字</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec rise d3">
+    <div class="sec-h">字体 · Typography</div>
+    <div class="type">
+      <div class="tcard"><div class="tlabel">DISPLAY · Space Grotesk + 苹方</div><div class="t-display">项目进度中枢 / Build in Public</div></div>
+      <div class="tcard"><div class="tlabel">BODY · Inter + 苹方</div><div class="t-body">每个项目都有开头(目标)和结尾(成果),你只需要补足中间的分支项。进度不是手填的,是 AI 从你真实的工作产物里推导、你点确认。</div></div>
+      <div class="tcard"><div class="tlabel">MONO · JetBrains Mono · 数字 / 路径 / 进度</div><div class="t-mono">vtumor · 62% · ~/Downloads/王多鱼/vtumor · 3/5 里程碑</div></div>
+    </div>
+  </section>
+
+  <section class="sec rise d4">
+    <div class="sec-h">项目全景 · 卡片 + 进度环</div>
+    <div class="grid">
+      <!-- card 1 in-progress -->
+      <div class="card">
+        <div class="top"><span class="tag">🧬 科研</span><span class="chip-st st-ing"><span class="dot"></span>进行中</span></div>
+        <h3>vtumor</h3>
+        <div class="sub">虚拟荷瘤小鼠 · 细胞态扰动排序</div>
+        <div class="ringwrap">
+          <div class="ring"><svg width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="32" cy="32" r="26" fill="none" stroke="#2BD49A" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.36" stroke-dashoffset="62.08"/></svg><div class="pct">62%</div></div>
+          <div class="mile">已完成 <b>3 / 5</b> 里程碑<br>差:in-silico 筛选验证、湿实验闭环</div>
+        </div>
+      </div>
+      <!-- card 2 done -->
+      <div class="card">
+        <div class="top"><span class="tag">🀄 文化</span><span class="chip-st st-done"><span class="dot"></span>完成</span></div>
+        <h3>致大模型大厂公开信</h3>
+        <div class="sub">小红书图文 · 8 张深色轮播卡</div>
+        <div class="ringwrap">
+          <div class="ring"><svg width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="32" cy="32" r="26" fill="none" stroke="#2BD49A" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.36" stroke-dashoffset="0"/></svg><div class="pct" style="color:#2BD49A">100%</div></div>
+          <div class="mile">已完成 <b>6 / 6</b> 里程碑<br>已交付:轮播卡 + 全文 PDF</div>
+        </div>
+      </div>
+      <!-- card 3 in-progress -->
+      <div class="card">
+        <div class="top"><span class="tag">⚙️ 引擎</span><span class="chip-st st-ing"><span class="dot"></span>进行中</span></div>
+        <h3>A股量化选股</h3>
+        <div class="sub">东财直连 · 透明可回测</div>
+        <div class="ringwrap">
+          <div class="ring"><svg width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/><circle cx="32" cy="32" r="26" fill="none" stroke="#E8B339" stroke-width="5" stroke-linecap="round" stroke-dasharray="163.36" stroke-dashoffset="106.19"/></svg><div class="pct" style="color:#E8B339">35%</div></div>
+          <div class="mile">已完成 <b>2 / 6</b> 里程碑<br>差:胜率校准、回测面板</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec rise d5">
+    <div class="sec-h">项目详情树 · 开头 → 分支 → 结尾</div>
+    <div class="tree">
+      <div class="node goal"><div class="nlabel">开头 · GOAL</div><div class="ntitle">做出能用的项目中枢</div></div>
+      <div class="conn"></div>
+      <div class="branches">
+        <div class="branch"><div class="brow"><span>设计 / 主题</span><span class="pc" style="color:#2BD49A">100%</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="branch"><div class="brow"><span>前端 UI</span><span class="pc" style="color:#E8B339">45%</span></div><div class="bar"><i style="width:45%;background:linear-gradient(90deg,#E8B339,#f3cf7a)"></i></div></div>
+        <div class="branch"><div class="brow"><span>数据 / 扫描层</span><span class="pc" style="color:#E8B339">20%</span></div><div class="bar"><i style="width:20%;background:linear-gradient(90deg,#E8B339,#f3cf7a)"></i></div></div>
+      </div>
+      <div class="conn"></div>
+      <div class="node end"><div class="nlabel">结尾 · OUTCOME</div><div class="ntitle">一眼看清全部项目<br>总进度怎么样</div></div>
+    </div>
+  </section>
+
+  <div class="foot rise d5">
+    <span><b>主题</b> 墨玉 Ink Jade</span>
+    <span><b>字体</b> Space Grotesk / Inter / JetBrains Mono + 苹方</span>
+    <span><b>语义</b> 翡翠=完成 · 鎏金=进行中 · 黯红=失败</span>
+  </div>
+
+</div>
+</body>
+</html>
