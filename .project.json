@@ -1,0 +1,55 @@
+{
+  "branches": [
+    {
+      "milestones": [
+        {
+          "done": true,
+          "title": "脚手架 / 依赖"
+        },
+        {
+          "done": false,
+          "title": "核心实现"
+        },
+        {
+          "done": false,
+          "title": "产出 / 交付"
+        }
+      ],
+      "name": "里程碑(启发式)"
+    },
+    {
+      "name": "产品化(可交付)",
+      "by": {
+        "agent": "Claude Fable 5"
+      },
+      "milestones": [
+        {
+          "title": "扫描根+称呼可配置(设置面板,热生效)",
+          "done": true
+        },
+        {
+          "title": "右上角使用说明(三步上手+AI接入三式)",
+          "done": true
+        },
+        {
+          "title": "MCP服务器(零依赖,4工具,实测通)",
+          "done": true
+        },
+        {
+          "title": "首跑onboarding引导",
+          "done": true
+        },
+        {
+          "title": "产品README(安装/接入/分发指南)",
+          "done": true
+        }
+      ]
+    }
+  ],
+  "category": "引擎",
+  "emoji": "⚙️",
+  "goal": "整理 project-hub 的目标与进度(草稿)",
+  "outcome": "一个覆盖桌面、AI 自动推导进度、亮色 Apple 风的项目中枢 .app。",
+  "status": "done",
+  "tagline": "项目进度中枢 · 覆盖桌面 · 亮色 Apple 风"
+}
